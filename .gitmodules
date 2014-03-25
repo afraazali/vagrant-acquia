@@ -16,3 +16,6 @@
 [submodule "puppet/modules/curl"]
 	path = puppet/modules/curl
 	url = https://github.com/Element84/puppet-curl.git
+[submodule "puppet/modules/rbenv"]
+	path = puppet/modules/rbenv
+	url = https://github.com/justindowning/puppet-rbenv
