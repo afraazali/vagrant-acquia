@@ -2,7 +2,8 @@ class acquia::php::apt {
   if defined('apt::source') {
     # Puppetlabs/apt module
     apt::ppa { 'ppa:fabianarias/php5': 
-      notify => Exec['acquia::php::apt-get update']
+      notify => Exec['acquia::php::apt-get update'],
+      options => ''
     }
   }
 
