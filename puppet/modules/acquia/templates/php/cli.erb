@@ -1549,7 +1549,7 @@ session.entropy_length = 0
 ; Specified here to create the session id.
 ; http://php.net/session.entropy-file
 ; On systems that don't have /dev/urandom /dev/arandom can be used
-; On windows, setting the entropy_length setting will activate the 
+; On windows, setting the entropy_length setting will activate the
 ; Windows random source (using the CryptoAPI)
 ;session.entropy_file = /dev/urandom
 
@@ -1855,13 +1855,13 @@ memcache.maxfiles=0
 memcache.archivememlim=0
 memcache.maxfilesize=0
 memcache.maxratio=0
-memcache.allow_failover=true 
-memcache.max_failover_attempts=20 
-memcache.chunk_size=32768 
-memcache.default_port=11211 
-memcache.hash_strategy=consistent 
-memcache.hash_function=crc32 
-memcache.redundancy=1 
+memcache.allow_failover=true
+memcache.max_failover_attempts=20
+memcache.chunk_size=32768
+memcache.default_port=11211
+memcache.hash_strategy=consistent
+memcache.hash_function=crc32
+memcache.redundancy=1
 memcache.session_redundancy=2
 
 [apc]
@@ -1875,7 +1875,7 @@ apc.num_files_hint=1024
 ; mmap_file_mask /dev/zero causes mmap() to only use virtual memory
 ; rather than a memory-mapped disk file. We've experienced heavy
 ; disk I/O on a busy site when using the file-backed APC cache which
-; was instantly cured by changing this setting to /dev/zero.  
+; was instantly cured by changing this setting to /dev/zero.
 apc.mmap_file_mask=/dev/zero
 apc.enable_cli=1
 apc.cache_by_default=1

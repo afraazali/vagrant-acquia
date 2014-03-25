@@ -1,5 +1,5 @@
 class acquia::varnish (
-	$listen=":80", 
+	$listen=":80",
 	$cache_size="256m"
 ) {
 
@@ -29,7 +29,7 @@ class acquia::varnish (
     before  => Service ["varnish"],
     notify  => Exec ["varnish-restart"],
   }
-  
+
   file { "/etc/varnish/default.vcl":
     ensure  => present,
     owner   => "root",
@@ -40,7 +40,7 @@ class acquia::varnish (
     before  => Service ["varnish"],
     notify  => Exec ["varnish-restart"],
   }
-  
+
   file { "/etc/varnish/acl.vcl":
     ensure  => present,
     owner   => "root",
@@ -69,10 +69,17 @@ class acquia::varnish (
     refreshonly => true,
   }
 
-  fetch_repo_key { "C4DEFFEB":
-    ensure => present,
-    keyid  => "C4DEFFEB",
+  # fetch_repo_key { "C4DEFFEB":
+  #   ensure => present,
+  #   keyid  => "C4DEFFEB",
+  #   before => Exec ["resync_package_index"],
+  # }
+
+  exec { "fetch_repo_key_curl":
+    command => 'curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -',
+    path => ["/usr/bin", "/usr/sbin"],
     before => Exec ["resync_package_index"],
+    require => Class['curl']
   }
 
   file { "/etc/apt/sources.list.d/varnish.list":
